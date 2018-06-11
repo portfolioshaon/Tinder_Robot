@@ -23,8 +23,8 @@ def random_with_N_digits(n):
     range_end = (10**n)-1
     return randint(range_start, range_end)
     
-fpat = "capture_images/faces/"
-fpato = "capture_images/others/"
+fpat = "../capture_images/faces/"
+fpato = "../capture_images/others/"
 
 # When you load an image using OpenCV it loads that image into BGR color space by default. To show the colored image using `matplotlib` we have to convert it to RGB space. Following is a helper function to do exactly that. 
 
