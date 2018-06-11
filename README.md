@@ -6,3 +6,7 @@
 	if only one face 
 	then leave a like
 	and stop when limit crossed
+
+## Credit
+	Author: Shaon Majumder
+ 	Implementation of Basic Harscascade from OpenCV library: https://github.com/informramiz/opencv-face-recognition-python
