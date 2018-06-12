@@ -3,23 +3,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 from random import randint
 
-print("define diagonal region")
-ab = raw_input('position for Left-top corner')
-c, d = pyautogui.position()
-print("like Cor",c,d)
-ab = raw_input('position for right-bottom corner')
-e, f = pyautogui.position()
-print("like Cor",e,f)
-print("",(c , d , e-c, f-d)) 
+#Constants
+fpat = "../capture_images/tinder_faces/"
+fpato = "../capture_images/tinder_others/"
 
-
+#Functions
 def random_with_N_digits(n):
     range_start = 10**(n-1)
     range_end = (10**n)-1
     return randint(range_start, range_end)
+
+#getting dimension of image frame
+print("define diagonal region")
+ab = raw_input('position for Left-top corner')
+c, d = pyautogui.position()
+print("position for Left-top corner",c,d)
+ab = raw_input('position for right-bottom corner')
+e, f = pyautogui.position()
+print("position for right-bottom corner",e,f)
+print("Got Frame Co-ordinates left, top, widhth, height =",(c , d , e-c, f-d)) 
+
+
     
-fpat = "../capture_images/faces/"
-fpato = "../capture_images/others/"
 
 # When you load an image using OpenCV it loads that image into BGR color space by default. To show the colored image using `matplotlib` we have to convert it to RGB space. Following is a helper function to do exactly that. 
 
