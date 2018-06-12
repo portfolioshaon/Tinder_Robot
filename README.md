@@ -1,11 +1,19 @@
 # Tinder Automation
 ## Features
-	Check Browser window for specific website
+	Check Browser window for specific website [undone]
 	Take screenshot and pass it to opencv
-	opencv detect face in picture
-	if only one face 
-	then leave a like
-	and stop when limit crossed
+	Simple frontal Face Detection Like else Dislike
+	and stop when limit crossed [undone]
+
+## Algorithm
+	Taking Screenshot
+	Detecting Face
+	Like else Dislike
+	stop if like limit crossed
+
+## Files
+	ques.txt - Search Queries for solving project issues
+	update.bat - Take commit message from user and automate git push
 
 ## Credit
 	Author: Shaon Majumder
