@@ -10,3 +10,6 @@
 ## Credit
 	Author: Shaon Majumder
  	Implementation of Basic Harscascade from OpenCV library: https://github.com/informramiz/opencv-face-recognition-python
+
+## Information
+	Know more about open source - https://opensource.org/
