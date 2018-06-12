@@ -1,4 +1,8 @@
 # Tinder Automation
+## Download
+Install git and type the command below in the terminal
+	git clone https://github.com/ShaonMajumder/tinder_automation.git
+
 ## Features
 	Check Browser window for specific website [undone]
 	Take screenshot and pass it to opencv
