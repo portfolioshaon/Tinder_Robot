@@ -11,9 +11,16 @@
 	Like else Dislike
 	stop if like limit crossed
 
-## Files
+## Files & Folders
+	prm - Project Management Folder
+	issues - problem issues regarding to project need to solve
+	data - cascade files for object detection
+	../capture_images - Raw Data Extraction folder
+
 	ques.txt - Search Queries for solving project issues
 	update.bat - Take commit message from user and automate git push
+	project.log - for tracking project by update.bat
+	start.py - main project run script
 
 ## Credit
 	Author: Shaon Majumder
