@@ -1,11 +1,6 @@
-import pyautogui
+import pyautogui,cv2,time, os.path, datatime
 import numpy as np
-import cv2
 import matplotlib.pyplot as plt
-import time 
-
-import datetime
-import os.path
 from random import randint
 
 print("define diagonal region")
