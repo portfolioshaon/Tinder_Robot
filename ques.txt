@@ -1,0 +1,2 @@
+lbpcascade vs hararcascade - https://stackoverflow.com/questions/8791178/haar-cascades-vs-lbp-cascades-in-face-detection
+
