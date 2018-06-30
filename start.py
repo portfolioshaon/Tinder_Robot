@@ -49,11 +49,11 @@ haar_face_cascade = cv2.CascadeClassifier('data/haarcascade_frontalface_alt.xml'
 from msvcrt import getch
 
 ab = raw_input('position for like')
-time.sleep(3)
+#time.sleep(3)
 x, y = pyautogui.position()
 print("like Cor",x,y)
 ab = raw_input('position for dislike')
-time.sleep(3)
+#time.sleep(3)
 a, b = pyautogui.position()
 print("dislike Cor",a,b)
 
