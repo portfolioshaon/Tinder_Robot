@@ -15,10 +15,10 @@ def random_with_N_digits(n):
 
 #getting dimension of image frame
 print("define diagonal region")
-ab = raw_input('position for Left-top corner')
+ab = input('position for Left-top corner')
 c, d = pyautogui.position()
 print("position for Left-top corner",c,d)
-ab = raw_input('position for right-bottom corner')
+ab = input('position for right-bottom corner')
 e, f = pyautogui.position()
 print("position for right-bottom corner",e,f)
 print("Got Frame Co-ordinates left, top, widhth, height =",(c , d , e-c, f-d)) 
@@ -48,20 +48,23 @@ haar_face_cascade = cv2.CascadeClassifier('data/haarcascade_frontalface_alt.xml'
 
 from msvcrt import getch
 
-ab = raw_input('position for like')
+ab = input('position for like')
 #time.sleep(3)
 x, y = pyautogui.position()
 print("like Cor",x,y)
-ab = raw_input('position for dislike')
+ab = input('position for dislike')
 #time.sleep(3)
 a, b = pyautogui.position()
 print("dislike Cor",a,b)
 
+print("Going for loop")
 while True:
+    """
     keypress = ord(getch())
     if keypress == 13:
         break
-
+    """
+    
 	#load test iamge
     image = pyautogui.screenshot('my_screenshot.png')
     test1 = cv2.imread('my_screenshot.png')
