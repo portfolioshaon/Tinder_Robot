@@ -21,12 +21,6 @@ fpat = "../capture_images/tinder_faces/"
 fpato = "../capture_images/tinder_others/"
 
 #Functions
-def write_file(strs):
-    import codecs
-    with codecs.open('node_lists.txt', 'w', encoding='utf-8') as file_appender:
-        file_appender.writelines(strs)
-
-
 def remove_multi_space(text):
     import re
     return re.sub(' +',' ',text)
@@ -179,7 +173,7 @@ while True:
     
     dead_end = False
     text_END = remove_multi_space(image_to_text("my_screenshot.png"))
-    write_file(text_END)
+
     for word in ["Payment","subtotal","BDT"]:
         if word in text_END:
             dead_end = True
