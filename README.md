@@ -1,4 +1,6 @@
 # Tinder Automation
+An automatic tinder client swiper for humans
+
 ## Download
 Install git and type the command below in the terminal
 	git clone https://github.com/ShaonMajumder/tinder_automation.git
