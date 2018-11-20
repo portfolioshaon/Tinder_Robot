@@ -25,7 +25,6 @@ def remove_multi_space(text):
     import re
     return re.sub(' +',' ',text)
 
-
 def common_words(text1, text2):
     text1 = text1.split(" ")
     text2 = text2.split(" ")
@@ -51,7 +50,7 @@ def image_to_text(filename):
     image = cv2.imread(filename)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-    #cv2.imshow("Image", gray)
+    ## cv2.imshow("Image", gray)
 
     # check to see if we should apply thresholding to preprocess the
     # image
@@ -78,7 +77,7 @@ def image_to_text(filename):
     # cv2.imshow("Image", image)
     
 
-    #cv2.imshow("Output", gray)
+    ## cv2.imshow("Output", gray)
     #cv2.waitKey(0)
 
     return text
