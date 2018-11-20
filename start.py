@@ -1,3 +1,16 @@
+#-*- coding:utf-8 -*-
+# USAGE
+# python ocr.py --image images/example_01.png 
+# python ocr.py --image images/example_02.png  --preprocess blur
+
+# import the necessary packages
+from PIL import Image
+import pytesseract
+import argparse
+import cv2
+import os
+#teseract
+
 import pyautogui,cv2,time, os.path
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,6 +21,76 @@ fpat = "../capture_images/tinder_faces/"
 fpato = "../capture_images/tinder_others/"
 
 #Functions
+def write_file(strs):
+    import codecs
+    with codecs.open('node_lists.txt', 'w', encoding='utf-8') as file_appender:
+        file_appender.writelines(strs)
+
+
+def remove_multi_space(text):
+    import re
+    return re.sub(' +',' ',text)
+
+
+def common_words(text1, text2):
+    text1 = text1.split(" ")
+    text2 = text2.split(" ")
+
+    com_list = []
+    for w1 in text1:
+        for w2 in text2:
+            if w1 == w2:
+                com_list.append(w1)
+
+    return com_list
+
+def image_to_text(filename):
+    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe"
+    # construct the argument parse and parse the arguments
+    ap = argparse.ArgumentParser()
+    #ap.add_argument("-i", "--image", required=True,    help="path to input image to be OCR'd")
+    ap.add_argument("-p", "--preprocess", type=str, default="thresh",
+        help="type of preprocessing to be done")
+    args = vars(ap.parse_args())
+
+    # load the example image and convert it to grayscale
+    image = cv2.imread(filename)
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+    #cv2.imshow("Image", gray)
+
+    # check to see if we should apply thresholding to preprocess the
+    # image
+    if args["preprocess"] == "thresh":
+        gray = cv2.threshold(gray, 0, 255,
+            cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
+
+    # make a check to see if median blurring should be done to remove
+    # noise
+    elif args["preprocess"] == "blur":
+        gray = cv2.medianBlur(gray, 3)
+
+    # write the grayscale image to disk as a temporary file so we can
+    # apply OCR to it
+    filename = "{}.png".format(os.getpid())
+    cv2.imwrite(filename, gray)
+
+    # load the image as a PIL/Pillow image, apply OCR, and then delete
+    # the temporary file
+    text = pytesseract.image_to_string(Image.open(filename))
+    os.remove(filename)
+
+    # show the output images
+    # cv2.imshow("Image", image)
+    
+
+    #cv2.imshow("Output", gray)
+    #cv2.waitKey(0)
+
+    return text
+
+
+
 def random_with_N_digits(n):
     range_start = 10**(n-1)
     range_end = (10**n)-1
@@ -93,6 +176,15 @@ while True:
     FLEN = len(faces)
     print('Faces found: ', FLEN)
     
+    
+    dead_end = False
+    text_END = remove_multi_space(image_to_text("my_screenshot.png"))
+    write_file(text_END)
+    for word in ["Payment","subtotal","BDT"]:
+        if word in text_END:
+            dead_end = True
+
+    
     if(len(faces) > 0):
         pyautogui.click(x,y)
 		
@@ -103,8 +195,9 @@ while True:
 
         image = pyautogui.screenshot(path,region=(c , d , e-c, f-d))
         path = ""
-
-            
+    elif(dead_end):
+        print("Limit ends")
+        break        
     elif(len(faces) == 0):
         pyautogui.click(a,b)
 		
@@ -115,4 +208,6 @@ while True:
             
         image = pyautogui.screenshot(path,region=(c , d , e-c, f-d))
         path = ""
+    
+    #sleep is crucial for image capture
     time.sleep(2)

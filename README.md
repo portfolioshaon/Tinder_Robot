@@ -9,7 +9,10 @@ Install git and type the command below in the terminal
 	Simple frontal Face Detection Like else Dislike
 	and stop when limit crossed [undone]
 
-## Issues
+## Issues Fixed
+	stop if like limit crossed
+
+## Issues Open
 	Eye Detection
 	Celebraty detection
 
