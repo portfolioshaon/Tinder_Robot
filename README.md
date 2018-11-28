@@ -1,4 +1,4 @@
-# Tinder Automation
+# Tinder_Robot
 An automatic tinder client swiper for humans
 
 ## Download
